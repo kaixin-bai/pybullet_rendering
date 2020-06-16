@@ -22,6 +22,14 @@ python setup.py install --bullet_dir "$BULLET_ROOT_DIR/bullet3"
 
 ### Run tests
 
+avoid run local script from local package folder
+
+```
+
+cd
+python -m pybullet_rendering.examples.panda3d_gui --multisamples 2
+```
+
 ```
 python -m unittest discover tests -v
 ```
@@ -57,7 +65,7 @@ plugin = RenderingPlugin(client_id, renderer)
 w, h, rgba, depth, _ = pb.getCameraImage(w, h, projectionMatrix=..., viewMatrix=...)
 ```
 
-### Implement your oun renderer in Python
+### Implement your own renderer in Python
 
 Your renderer should be inherited from the `BaseRenderer` class and implement its `update_scene` and `render_frame` methods. To get an idea of their parameters, see examples and tests.
 
